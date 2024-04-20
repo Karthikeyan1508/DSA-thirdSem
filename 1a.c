@@ -10,7 +10,7 @@ void display(int);
 void main()
 {
     int top=-1,option;
-    //clrscr();
+    clrscr();
     while(1)
     {
         printf("\nStack operations\n");
@@ -22,17 +22,17 @@ void main()
         case 1:
             top=push(top);
             getch();
-            //clrscr();
+            clrscr();
             break;
         case 2:
             top=pop(top);
             getch();
-            //clrscr();
+            clrscr();
             break;
         case 3:
             display(top);
             getch();
-            //clrscr();
+            clrscr();
             break;
         case 4:
             exit(0);

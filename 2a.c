@@ -1,5 +1,3 @@
-// 2a --> Use recursive program to implement Tower of Hanoi
-
 #include<stdio.h>
 #include<conio.h>
 

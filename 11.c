@@ -1,5 +1,3 @@
-// 11 --> Implement Hash Tables
-
 #include<stdlib.h>
 #include<conio.h>
 #include<stdio.h>

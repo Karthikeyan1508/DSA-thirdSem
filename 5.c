@@ -1,73 +1,73 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-struct node
-{
+
+struct node {
     int data;
     struct node *link;
 };
+
 typedef struct node *NODE;
-NODE insert_rear(NODE);
+
+NODE getnode();
 NODE insert_front(NODE);
 NODE delete_front(NODE);
+NODE insert_rear(NODE);
 NODE delete_rear(NODE);
-NODE getnode();
 void display(NODE);
-void main()
-{
+
+void main() {
     NODE head;
     int option;
     //clrscr();
     head = getnode();
     head->link = head;
-    while (1)
-    {
+    while (1) {
         printf("\nCircular linked list operations\n");
-        printf("1.Insert to rear\n2.Insert to front\n3.Delete from front\n4.Delete from rear\n5.Display\n6.Exit\n");
+        printf("1. Insert to rear\n2. Insert to front\n3. Delete from front\n4. Delete from rear\n5. Display\n6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &option);
-        switch (option)
-        {
-        case 1:
-            head = insert_rear(head);
-            getch();
-            clrscr();
-            break;
-        case 2:
-            head = insert_front(head);
-            getch();
-            clrscr();
-            break;
-        case 3:
-            head = delete_front(head);
-            getch();
-            clrscr();
-            break;
-        case 4:
-            head = delete_rear(head);
-            getch();
-            clrscr();
-            break;
-        case 5:
-            display(head);
-            getch();
-            clrscr();
-            break;
-        case 6:
-            exit(0);
-        default:
-            printf("Invalid choice\n");
+        switch (option) {
+            case 1:
+                head = insert_rear(head);
+                getch();
+                clrscr();
+                break;
+            case 2:
+                head = insert_front(head);
+                getch();
+                clrscr();
+                break;
+            case 3:
+                head = delete_front(head);
+                getch();
+                clrscr();
+                break;
+            case 4:
+                head = delete_rear(head);
+                getch();
+                clrscr();
+                break;
+            case 5:
+                display(head);
+                getch();
+                clrscr();
+                break;
+            case 6:
+                exit(0);
+            default:
+                printf("Invalid choice\n");
         }
     }
 }
-NODE getnode()
-{
+
+NODE getnode() {
     NODE temp;
     temp = (NODE)malloc(sizeof(struct node));
     return temp;
 }
-NODE insert_front(NODE head)
-{
+
+NODE insert_front(NODE head) {
     NODE temp, first;
     temp = getnode();
     printf("Enter the data: ");
@@ -77,11 +77,10 @@ NODE insert_front(NODE head)
     head->link = temp;
     return head;
 }
-NODE delete_front(NODE head)
-{
+
+NODE delete_front(NODE head) {
     NODE ptr;
-    if (head->link == head)
-    {
+    if (head->link == head) {
         printf("No nodes\n");
         return head;
     }
@@ -91,8 +90,8 @@ NODE delete_front(NODE head)
     free(ptr);
     return head;
 }
-NODE insert_rear(NODE head)
-{
+
+NODE insert_rear(NODE head) {
     NODE ptr, temp;
     ptr = head->link;
     while (ptr->link != head)
@@ -105,17 +104,15 @@ NODE insert_rear(NODE head)
     temp->link = head;
     return head;
 }
-NODE delete_rear(NODE head)
-{
+
+NODE delete_rear(NODE head) {
     NODE ptr, prev;
-    if (head->link == head)
-    {
+    if (head->link == head) {
         printf("No nodes\n");
         return head;
     }
     ptr = head->link;
-    while (ptr->link != head)
-    {
+    while (ptr->link != head) {
         prev = ptr;
         ptr = ptr->link;
     }
@@ -124,13 +121,12 @@ NODE delete_rear(NODE head)
     free(ptr);
     return head;
 }
-void display(NODE head)
-{
+
+void display(NODE head) {
     NODE temp;
     if (head->link == head)
         printf("No nodes\n");
-    else
-    {
+    else {
         for (temp = head->link; temp->link != head; temp = temp->link)
             printf("%d=>", temp->data);
         printf("%d", temp->data);
