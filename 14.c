@@ -70,7 +70,7 @@ void main() {
     fclose(fin2);
     fclose(fout3);
 
-    fin3 = fopen("file3.dat", "r");
+    fin3 = fopen("file3.txt", "r");
 
     if(fin3 == NULL) {
         printf("Could not read from file 3");
